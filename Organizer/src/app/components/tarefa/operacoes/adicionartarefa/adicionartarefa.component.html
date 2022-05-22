@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <form class="d-flex justify-content-center py-5">
+    <fieldset>
+      <div class="input-group mb-3" *ngIf="nome !== null && nome !== ''  && nome !==undefined; else tarefasemnome">
+        <label class="input-group-text" for="inputGroupSelect01">Listas </label>
+        <select
+          class="form-select"
+          id="inputGroupSelect01"
+          required
+          [(ngModel)]="listaId"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <option *ngFor="let item of listas" [value]="item.id">
+            {{ item.nome }}
+          </option>
+        </select>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nome da Tarefa"
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+            required
+            type="text"
+            name="tarefa"
+            id="tarefa"
+            [(ngModel)]="nome"
+          />
+          <button
+            class="btn btn-primary"
+            type="button"
+            id="button-addon2"
+            (click)="adicionar()"
+          >
+            Adicionar Tarefa
+          </button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<ng-template #tarefasemnome>
+  <label class="input-group-text" for="inputGroupSelect01">Listas </label>
+  <select
+    class="form-select"
+    id="inputGroupSelect01"
+    required
+    [(ngModel)]="listaId"
+    [ngModelOptions]="{ standalone: true }"
+  >
+    <option *ngFor="let item of listas" [value]="item.id">
+      {{ item.nome }}
+    </option>
+  </select>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Nome da Tarefa"
+      aria-label="Recipient's username"
+      aria-describedby="button-addon2"
+      required
+      type="text"
+      name="tarefa"
+      id="tarefa"
+      [(ngModel)]="nome"
+    />
+  </div>
+  <button
+  class="btn btn-secondary"
+  type="button"
+  id="button-addon2"
+disabled
+>
+  Adicionar Tarefa
+</button>
+</ng-template>

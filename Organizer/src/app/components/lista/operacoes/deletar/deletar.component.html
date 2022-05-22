@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <form class="d-flex justify-content-center pt-5">
+    <fieldset>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Listas</label>
+
+        <select
+          class="form-select"
+          id="inputGroupSelect01"
+          [(ngModel)]="listaId"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <option required *ngFor="let item of lista" [value]="item.id">
+            {{ item.nome }}
+          </option>
+        </select>
+        <button class="btn btn-danger" type="button" (click)="deletar()">
+          Deletar
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<ng-template #naoselecionado>
+  <select
+    class="form-select"
+    id="inputGroupSelect01"
+    [(ngModel)]="listaId"
+    [ngModelOptions]="{ standalone: true }"
+  >
+    <option required *ngFor="let item of lista" [value]="item.id">
+      {{ item.nome }}
+    </option>
+  </select>
+</ng-template>
