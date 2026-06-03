@@ -1,78 +1,85 @@
+using System;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using OrganizerBackEnd.Dto;
-using OrganizerBackEnd.Interfaces;
 using OrganizerBackEnd.Models;
-using System;
-using System.Collections.Generic;
+using OrganizerBackEnd.Services;
 
-namespace OrganizerBackEnd.Controller
+namespace OrganizerBackEnd.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class ListaController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class ListaController : ControllerBase
+    private readonly IService<Lista> _listaService;
+    private readonly IMapper _mapper;
+
+    public ListaController(IService<Lista> service, IMapper mapper)
     {
-        private readonly IServices<Lista> _listaService;
-        private readonly IMapper _mapper;
+        _listaService = service;
+        _mapper = mapper;
+    }
 
-        public ListaController(IServices<Lista> service, IMapper mapper)
+    [HttpPost]
+    public async Task<IActionResult> AdicionarLista([FromBody] CreateListaDto listaDto)
+    {
+        var lista = _mapper.Map<Lista>(listaDto);
+        try
         {
-            _listaService = service;
-            _mapper = mapper;
+            var result = await _listaService.Adicionar(lista);
+            return CreatedAtAction(nameof(PesquisarListaPorId), new { id = result.Id }, result);
         }
-
-        [HttpPost]
-        public IActionResult AdicionarLista([FromBody] CreateListaDto listaDto)
+        catch (Exception e)
         {
-            var lista = _mapper.Map<Lista>(listaDto);
-            try
-            {
-                 _listaService.Adicionar(lista);
-                return Ok(lista);
-            }
-            catch (ArgumentException e)
-            {
-                return  Ok(e.Message);
-            } 
+            return BadRequest(e.Message);
         }
+    }
 
-        [HttpGet]
-        public List<Lista> ProcurarLista() =>
-                _listaService.Pesquisar();
+    [HttpGet]
+    public async Task<IActionResult> ProcurarLista([FromQuery] int skip = 1, [FromQuery] int take = 5)
+    {
+        return Ok(await _listaService.PesquisarPaginados(skip, take));
+    }
 
-        [HttpGet("{id}")]
-        public IActionResult PesquisarListaPorId(int id)
+    [HttpGet("{id}")]
+    public async Task<IActionResult> PesquisarListaPorId(int id)
+    {
+        try
         {
-            try
-            {
-                return Ok(_listaService.PesquisarPorId(id));
-            }
-            catch (ArgumentException e)
-            {
-                return Ok(e.Message);
-            }
+            return Ok(await _listaService.PesquisarPorId(id));
         }
-
-        [HttpPut("{id}")]
-        public IActionResult AtualizarLista(int id, [FromBody] Lista listaAtualizada)
+        catch (ArgumentException e)
         {
-            try
-            {
-                _listaService.Atualizar(id, listaAtualizada);
-                return Ok(listaAtualizada);
-            }
-            catch(ArgumentException e)
-            {
-               return  Ok(e.Message);
-            }
+            return BadRequest(e.Message);
         }
+    }
 
-        [HttpDelete("{id}")]
-        public IActionResult RemoverLista(int id)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> AtualizarLista(int id, [FromBody] Lista listaAtualizada)
+    {
+        try
         {
-            _listaService.Remover(id);
-            return Ok(ProcurarLista());
+            var lista = await _listaService.Atualizar(id, listaAtualizada);
+            return Ok(lista);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> RemoverLista(int id)
+    {
+        try
+        {
+            await _listaService.Remover(id);
+            return NoContent();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
         }
     }
 }
-

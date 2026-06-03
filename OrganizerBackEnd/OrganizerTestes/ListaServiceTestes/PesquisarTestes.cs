@@ -1,53 +1,53 @@
-﻿using Moq;
-using OrganizerBackEnd.Interfaces;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Moq;
+using OrganizerBackEnd.Context;
 using OrganizerBackEnd.Models;
 using OrganizerBackEnd.Services;
-using System.Collections.Generic;
 using Xunit;
 
-namespace OrganizerTestes.ListaServiceTestes
+namespace OrganizerTestes.ListaServiceTestes;
+
+public class PesquisarTarefaTestes
 {
-    public class PesquisarTarefaTestes
+    [Fact]
+    public async Task Pesquisar_QuandoChamado_DeveRetornarListasPaginadas()
     {
-        [Fact]
-        public void Pesquisar_QuandoChamado_DeveRetornarListas()
+        //Arrange
+        var quantidadeListasEsperadas = 5;
+        var listasDummy = new List<Lista>();
+        for (var i = 0; i < 10; i++)
         {
-            //Arrange
-            var listasEsperadas = new List<Lista>() { };
-            for (var i = 0; i < 5; i++)
-            {
-                var listaAtual = new Lista() { Id = i, Nome = "NomeVálido" };
-                listasEsperadas.Add(listaAtual);
-            }
-            var mockContextLista = new Mock<IOrganizerContext>();
-            mockContextLista.Setup(l => l.Listas)
-                .Returns(DbSetShared
-                .GetQueryableMockDbSet(listasEsperadas));
-            var listaService = new ListaServices(mockContextLista.Object);
-            //Act
-            var resultado = listaService.Pesquisar();
-            //Assert
-            Assert.NotNull(resultado);
-            Assert.Equal(listasEsperadas.Count, resultado.Count);
+            var listaAtual = new Lista { Id = i, Nome = "NomeVálido" };
+            listasDummy.Add(listaAtual);
         }
 
-        [Fact]
-        public void PesquisarPorId_QuandoReceberId_DeveRetornarListaReferenteAoId()
-        {
-            var listaEsperadaId1 = 1;
-            var listaDummy1 = new Lista() { Nome = "", Id = listaEsperadaId1 };
-            var listaEsperada = new List<Lista>() { listaDummy1 };
-            var mockContextLista = new Mock<IOrganizerContext>();
-            mockContextLista.Setup(l => l.Listas)
-                .Returns(DbSetShared
-                .GetQueryableMockDbSet(new List<Lista>() { listaDummy1 }));
-            var listaService = new ListaServices(mockContextLista.Object);
-            //Act
-            var resultado = listaService.PesquisarPorId(listaEsperadaId1);
-            //Assert
-            Assert.NotNull(resultado);
-            Assert.Equal(listaEsperadaId1, resultado.Id);
+        var mockContextLista = new Mock<IOrganizerContext>();
+        mockContextLista.Setup(l => l.Listas)
+            .Returns(DbSetShared.GetQueryableMockDbSet(listasDummy));
+        var listaService = new ListaService(mockContextLista.Object);
+        //Act
+        var resultado = await listaService.PesquisarPaginados();
+        //Assert
+        Assert.NotNull(resultado);
+        Assert.Equal(quantidadeListasEsperadas, resultado.Count());
+    }
 
-        }
+    [Fact]
+    public async Task PesquisarPorId_QuandoReceberId_DeveRetornarListaReferenteAoId()
+    {
+        var listaEsperadaId1 = 1;
+        var listaDummy1 = new Lista { Nome = "", Id = listaEsperadaId1 };
+        var mockContextLista = new Mock<IOrganizerContext>();
+        mockContextLista.Setup(l => l.Listas)
+            .Returns(DbSetShared
+                .GetQueryableMockDbSet(new List<Lista> { listaDummy1 }));
+        var listaService = new ListaService(mockContextLista.Object);
+        //Act
+        var resultado = await listaService.PesquisarPorId(listaEsperadaId1);
+        //Assert
+        Assert.NotNull(resultado);
+        Assert.Equal(listaEsperadaId1, resultado.Id);
     }
 }

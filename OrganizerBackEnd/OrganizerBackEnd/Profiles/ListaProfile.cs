@@ -2,13 +2,12 @@
 using OrganizerBackEnd.Dto;
 using OrganizerBackEnd.Models;
 
-namespace OrganizerBackEnd.Profiles
+namespace OrganizerBackEnd.Profiles;
+
+public class ListaProfile : Profile
 {
-    public class ListaProfile:Profile
+    public ListaProfile()
     {
-        public ListaProfile()
-        {
-            CreateMap<CreateListaDto, Lista>();
-        }
+        CreateMap<CreateListaDto, Lista>();
     }
 }

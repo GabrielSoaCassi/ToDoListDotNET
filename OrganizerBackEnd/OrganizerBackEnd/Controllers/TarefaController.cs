@@ -1,70 +1,85 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using OrganizerBackEnd.Dto;
-using OrganizerBackEnd.Interfaces;
 using OrganizerBackEnd.Models;
-using System;
-using System.Collections.Generic;
+using OrganizerBackEnd.Services;
 
-namespace OrganizerBackEnd.Controllers
+namespace OrganizerBackEnd.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class TarefaController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class TarefaController : ControllerBase
+    private readonly IMapper _mapper;
+    private readonly IService<Tarefa> _serviceTarefa;
+
+    public TarefaController(IService<Tarefa> service, IMapper mapper)
     {
-        private readonly IServices<Tarefa> _serviceTarefa;
-        private readonly IMapper _mapper;
+        _serviceTarefa = service;
+        _mapper = mapper;
+    }
 
-        public TarefaController(IServices<Tarefa> service,IMapper mapper)
+    [HttpPost]
+    public async Task<IActionResult> AdicionarTarefa([FromBody] CreateTarefaDto tarefaDto)
+    {
+        var tarefa = _mapper.Map<Tarefa>(tarefaDto);
+        try
         {
-            _serviceTarefa = service;
-            _mapper = mapper;
+            await _serviceTarefa.Adicionar(tarefa);
+            return CreatedAtAction(nameof(PesquisarTarefaPorId), new { id = tarefa.Id }, tarefa);
         }
-
-        [HttpPost]
-        public IActionResult AdicionarTarefa([FromBody] CreateTarefaDto tarefaDto)
+        catch (ArgumentException e)
         {
-            var tarefa = _mapper.Map<Tarefa>(tarefaDto);
-            try
-            {
-                _serviceTarefa.Adicionar(tarefa);
-                return Ok(tarefa);
-            }
-            catch (ArgumentException e)
-            {
-                return Ok(e.Message);
-            }
+            return BadRequest(e.Message);
         }
+    }
 
-        [HttpGet]
-        public List<Tarefa> ProcurarTarefa() =>
-            _serviceTarefa.Pesquisar();
+    [HttpGet]
+    public async Task<IActionResult> ProcurarTarefa([FromQuery] int skip = 1, [FromQuery] int take = 5)
+    {
+        return Ok(await _serviceTarefa.PesquisarPaginados(skip, take));
+    }
 
-        [HttpGet("{id}")]
-        public IActionResult PesquisarTarefaPorId(int id)
+    [HttpGet("{id}")]
+    public async Task<IActionResult> PesquisarTarefaPorId(int id)
+    {
+        try
         {
-            try
-            {
-                return Ok(_serviceTarefa.PesquisarPorId(id));
-            }
-            catch(ArgumentException e)
-            {
-                return Ok(e.Message);
-            }
+            return Ok(await _serviceTarefa.PesquisarPorId(id));
         }
-
-        [HttpPut("{id}")]
-        public IActionResult AtualizarTarefa(int id, [FromBody] Tarefa tarefaAtualizada)
+        catch (Exception e)
         {
-            _serviceTarefa.Atualizar(id, tarefaAtualizada);
-            return Ok(tarefaAtualizada);
+            return BadRequest(e.Message);
         }
+    }
 
-        [HttpDelete("{id}")]
-        public IActionResult RemoverTarefa(int id)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> AtualizarTarefa(int id, [FromBody] Tarefa tarefaAtualizada)
+    {
+        try
         {
-            _serviceTarefa.Remover(id);
-            return Ok(ProcurarTarefa());
+            var resultado = await _serviceTarefa.Atualizar(id, tarefaAtualizada);
+            return Ok(resultado);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> RemoverTarefa(int id)
+    {
+        try
+        {
+            await _serviceTarefa.Remover(id);
+            return NoContent();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
         }
     }
 }
