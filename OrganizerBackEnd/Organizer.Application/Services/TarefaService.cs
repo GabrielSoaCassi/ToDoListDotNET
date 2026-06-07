@@ -5,14 +5,14 @@ using Organizer.Domain.Models;
 
 namespace Organizer.Application.Services;
 
-public class TarefaService : IService<TarefaDTO>
+public class TarefaService : ITarefaService
 {
     private readonly IMapper _mapper;
-    private readonly IRepository<Tarefa> _repository;
+    private readonly ITarefaRepository _repository;
 
-    public TarefaService(IRepository<Tarefa> repository, IMapper mapper)
+    public TarefaService(ITarefaRepository repository, IMapper mapper)
     {
-        _repository = _repository ?? throw new ArgumentNullException(nameof(repository));
+        _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         _mapper = mapper;
     }
 
@@ -23,16 +23,17 @@ public class TarefaService : IService<TarefaDTO>
         return _mapper.Map<TarefaDTO>(tarefaCriada);
     }
 
-    public async Task<TarefaDTO> Atualizar(int id, TarefaDTO novaTarefa)
+    public async Task<TarefaDTO> Atualizar(TarefaDTO novaTarefa)
     {
-        var tarefa = _mapper.Map<Tarefa>(novaTarefa);
-        var tarefaAtualizada = await _repository.Adicionar(tarefa);
+        var tarefaExistente = await _repository.PesquisarPorId(novaTarefa.Id.Value);
+        tarefaExistente.Update(novaTarefa.Nome, novaTarefa.ListaId);
+        var tarefaAtualizada = await _repository.Atualizar(tarefaExistente);
         return _mapper.Map<TarefaDTO>(tarefaAtualizada);
     }
 
-    public async Task<IEnumerable<TarefaDTO>> PesquisarPaginados(int skip, int take)
+    public async Task<IEnumerable<TarefaDTO>> PesquisarPaginados(int listaId, int skip, int take)
     {
-        var resultados = await _repository.PesquisarPaginados(skip, take);
+        var resultados = await _repository.PesquisarPaginados(listaId, skip, take);
         return _mapper.Map<IEnumerable<TarefaDTO>>(resultados);
     }
 
@@ -45,10 +46,5 @@ public class TarefaService : IService<TarefaDTO>
     public async Task Remover(int id)
     {
         await _repository.Remover(id);
-    }
-
-    public async Task<IEnumerable<TarefaDTO>> Pesquisar()
-    {
-        throw new NotImplementedException("This method is not implemented");
     }
 }

@@ -5,14 +5,14 @@ using Organizer.Domain.Models;
 
 namespace Organizer.Application.Services;
 
-public class ListaService : IService<ListaDTO>
+public class ListaService : IListaService
 {
     private readonly IMapper _mapper;
-    private readonly IRepository<Lista> _repository;
+    private readonly IListaRepository _repository;
 
-    public ListaService(IRepository<Lista> repository, IMapper mapper)
+    public ListaService(IListaRepository repository, IMapper mapper)
     {
-        _repository = _repository ?? throw new ArgumentNullException(nameof(repository));
+        _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         _mapper = mapper;
     }
 

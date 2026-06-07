@@ -18,6 +18,12 @@ public class Tarefa : Base
 
     public Lista Lista { get; set; }
 
+    public void Update(string nome, int listaId)
+    {
+        ModifiedDate = DateTime.Now;
+        ValidateDomain(nome, listaId);
+    }
+
     private void ValidateDomain(string nome, int listaId)
     {
         DomainValidationException.When(string.IsNullOrEmpty(nome), "Nome inválido insira um nome válido para a tarefa");

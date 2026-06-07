@@ -33,9 +33,9 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("CreateUser")]
-    [ApiExplorerSettings(IgnoreApi = true)]
+    [ApiExplorerSettings(IgnoreApi = false)]
     public async Task<ActionResult> CreateUser([FromBody] LoginModel userInfo)
-    {
+    {   
         var result = await _authenticate.RegisterAsync(userInfo.Email, userInfo.Password);
 
         if (result)

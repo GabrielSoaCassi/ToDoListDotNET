@@ -15,6 +15,14 @@ public class Lista : Base
 
     public IEnumerable<Tarefa> Tarefas { get; set; }
 
+
+    public void Update(string nome)
+    {
+        ModifiedDate = DateTime.Now;
+        ValidateDomain(nome);
+    }
+
+
     private void ValidateDomain(string nome)
     {
         DomainValidationException.When(string.IsNullOrEmpty(nome), "Nome inválido insira um nome válido para a lista");

@@ -2,11 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Organizer.Application.DTOs;
 using Organizer.Application.Profiles;
 using Organizer.Application.Services;
 using Organizer.Domain.Interfaces;
-using Organizer.Domain.Models;
 using Organizer.Infra.Data.Context;
 using Organizer.Infra.Data.Identity;
 using Organizer.Infra.Data.Repository;
@@ -19,7 +17,7 @@ public static class DependencyInjectionAPI
         IConfiguration configuration)
     {
         services.AddDbContextPool<OrganizerContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
+            options.UseNpgsql(configuration.GetConnectionString("OrganizerConnect"),
                 b => b.MigrationsAssembly(typeof(OrganizerContext).Assembly.FullName)));
         services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<OrganizerContext>()
@@ -28,10 +26,10 @@ public static class DependencyInjectionAPI
         services.AddScoped<IAuthenticate, AuthenticateService>();
         services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
         //Caso Precise Mudar Futuramente só implementar Services especializadas.
-        services.AddScoped<IService<TarefaDTO>, TarefaService>();
-        services.AddScoped<IService<ListaDTO>, ListaService>();
-        services.AddScoped<IRepository<Tarefa>, TarefasRepository>();
-        services.AddScoped<IRepository<Lista>, ListaRepository>();
+        services.AddScoped<ITarefaService, TarefaService>();
+        services.AddScoped<IListaService, ListaService>();
+        services.AddScoped<ITarefaRepository, TarefasRepository>();
+        services.AddScoped<IListaRepository, ListaRepository>();
         services.AddAutoMapper(cfg => { }, typeof(DomainProfile));
         return services;
     }

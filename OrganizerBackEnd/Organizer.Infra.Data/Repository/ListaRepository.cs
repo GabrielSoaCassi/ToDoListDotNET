@@ -5,7 +5,7 @@ using Organizer.Infra.Data.Context;
 
 namespace Organizer.Infra.Data.Repository;
 
-public class ListaRepository : IRepository<Lista>
+public class ListaRepository : IListaRepository
 {
     private readonly OrganizerContext _context;
 

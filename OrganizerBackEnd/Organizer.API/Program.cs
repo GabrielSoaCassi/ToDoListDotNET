@@ -1,3 +1,4 @@
+using Organizer.Infra.Data.Context;
 using Organizer.Infra.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,7 @@ builder.Services.AddInfrastructureAPI(builder.Configuration);
 builder.Services.AddInfrasStructureSwagger();
 
 var app = builder.Build();
-
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
