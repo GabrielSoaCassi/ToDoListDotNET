@@ -19,46 +19,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7f47989-642a-41de-97ac-78c15b198992" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Organizer.Application/Services/IListaService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OrganizerBackEnd/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OrganizerBackEnd/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.API/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.API/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.API/Controllers/ListaController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.API/Controllers/ListaController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.API/Controllers/TarefaController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.API/Controllers/TarefaController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Application/DTOs/ListaDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Application/DTOs/ListaDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Application/DTOs/TarefaDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Application/DTOs/TarefaDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Application/Services/ListaService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Application/Services/ListaService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Application/Services/TarefaService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Application/Services/TarefaService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Domain.Testes/DbSetShared.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Domain.Testes/ListaTestes/ListaUnitTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Domain.Testes/ListaTestes/ListaUnitTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Domain.Testes/TarefasTestes/TarefaUnitTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Domain.Testes/TarefasTestes/TarefaUnitTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Domain/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Domain/Interfaces/IListaRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Domain/Interfaces/IService.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Organizer.Domain/Models/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Domain/Models/Base.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Organizer.Domain/Models/Lista.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Domain/Models/Lista.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Organizer.Domain/Models/Tarefa.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Domain/Models/Tarefa.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Organizer.Domain/Validation/DomainValidationException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Domain/Validation/DomainValidationException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd.sln" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizerBackEnd.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Context/IOrganizerContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Context/OrganizerContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Controllers/ListaController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Controllers/TarefaController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Dto/CreateListaDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Dto/CreateTarefaDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Migrations/20260603003028_Initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Migrations/20260603003028_Initial.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Migrations/OrganizerContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Models/Lista.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Models/Tarefa.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/OrganizerBackEnd.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/OrganizerBackEnd.csproj.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Profiles/ListaProfile.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Profiles/TarefaProfile.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Services/IService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Services/ListaService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Services/TarefasService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerTestes/DbSetShared.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerTestes/ListaServiceTestes/AdicionarTestes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerTestes/ListaServiceTestes/AtualizarTestes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerTestes/ListaServiceTestes/PesquisarTestes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerTestes/OrganizerTestes.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerTestes/TarefasServicesTestes/AdicionarTarefaTestes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerTestes/TarefasServicesTestes/AtualizarTarefaTestes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizerTestes/TarefasServicesTestes/PesquisarTarefaTestes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Infra.Data/Repository/ListaRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Infra.Data/Repository/ListaRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Infra.Data/Repository/TarefasRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Infra.Data/Repository/TarefasRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Organizer.Infra.IoC/DependencyInjectionAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Organizer.Infra.IoC/DependencyInjectionAPI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrganizerBackEnd.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizerBackEnd.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +69,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/434bd08bac6f4e4dbea7f792549c4fa92b2938/76/4d2785dc/EntityTypeBuilder`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d0a6c1fa8c6643f3882b190fad67d9ff1da328/18/809506fc/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/13dc2b82f180e129c1f1186d422e1ed4122e23e1e1f265941fb7d2d3e1ce2/IActionResult.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2a8a5156343c6853864d9956214644e750ec73ec2d90f1d3748e8a765eec/ActionResultOfT.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2b5a64a615692cae2c8f378e99676581abe4bc355bb3844bfc6c6db3d576853/DeveloperExceptionPageMiddlewareImpl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2bd9ee9c35f1889d7291c5d22ecd216bc1efbf18f9bebe7e1c2229eefbbda9/MapperConfigurationExpression.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/337268366a89be4dda7d47b37063fd21841972237539397997c82c4f924b/Mock`1.cs" root0="FORCE_HIGHLIGHTING" />
@@ -97,11 +82,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/64ac869912346e8af45167a035ea61f9342e7317972dc1314264a2b263e134b0/TestRunner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a6f9555e47e5e4b4d3949244ea2e22bb8141caacfb7145f5ccf83e9eae4c6f/XunitTestRunner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7ffce93c37768cf2689de94b049415cb3929d33fb6b107c662519355df9c/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/82596738ee51b31456edad89786c6c6d05c13e1e53629fe4a308644b32d69/ControllerActionInvoker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a3224cd781deec2964554220fc9e8d9b7291d373c23d1d64de7128ef192aa849/XunitTestInvoker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b6aea664d32eeb23338ceef94460666031bf19b1c7642432a7b276cef8db68de/OpenApiInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bea8c41514fe19b15a2e9a98f2116d6d3effa32491c5349cfda989bc9f393/Record.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c7afd9724cf757c4a8469dba2bdc22ab5ac111c91f431dbfefc992dacb3e8635/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9c727cdfa9b5b574cd1cf7982619392db38b8e95c074a019c03b7feba5e6/ExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/db7395f4add94e6d10e515b3e55373f2821f8323de7dc8e314d78feefacf5584/ActionMethodExecutor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e14c34889fb5bd2d04c6ab9c3e6f8c95522dea29c7ccdd09479ef34977f2a4c/IHostBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e18c201d925f396c8e91969b78e5e86b9b49d9ededacc1a8b7be189ab56dd/OpenApiSecurityScheme.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e5ace92664429b8b34b68b587316fb211811b58aeb53422b43cecca2ad2bdaf3/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
@@ -123,7 +110,6 @@
     <setting file="file://$PROJECT_DIR$/Organizer.Domain.Testes/TarefasTestes/TarefaUnitTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Organizer.Domain/Interfaces/IAuthenticate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Organizer.Domain/Interfaces/ISeedUserRoleInitial.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Organizer.Domain/Interfaces/IService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Organizer.Domain/Models/Base.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Organizer.Infra.Data/EntityConfiguration/ListaConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Organizer.Infra.Data/EntityConfiguration/TarefaConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
@@ -141,61 +127,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.8559648426259976" />
-      <entry key="MS500" value="2.894435832445475" />
-      <entry key="S2" value="4.768255554910905" />
-      <entry key="S5" value="5.922030350616837" />
-      <entry key="S10" value="7.789707745888473" />
-      <entry key="S30" value="13.6742091557946" />
-      <entry key="S60" value="18.37257904410106" />
-      <entry key="M2" value="23.58464616286872" />
-      <entry key="M5" value="37.27970102515186" />
-      <entry key="M10" value="64.00993476178303" />
-      <entry key="M15" value="94.57948918577223" />
-      <entry key="M30" value="194.5190106635633" />
-      <entry key="H1" value="388.68176387009294" />
-      <entry key="H2" value="690.9867872919278" />
-      <entry key="H4" value="1021.4707043015266" />
-      <entry key="D1" value="1511.968927542817" />
-      <entry key="W1" value="1627.5827663417394" />
+      <entry key="MS100" value="1.0000000001725815" />
+      <entry key="MS500" value="1.0419590508468237" />
+      <entry key="S2" value="2.725709667076584" />
+      <entry key="S5" value="4.643278998560051" />
+      <entry key="S10" value="5.675284530058225" />
+      <entry key="S30" value="6.610924395599626" />
+      <entry key="S60" value="7.179709535556292" />
+      <entry key="M2" value="7.861247995945579" />
+      <entry key="M5" value="10.516334697095742" />
+      <entry key="M10" value="15.9868834343302" />
+      <entry key="M15" value="21.185527495693975" />
+      <entry key="M30" value="53.917537540265464" />
+      <entry key="H1" value="191.39945686231525" />
+      <entry key="H2" value="520.205637779197" />
+      <entry key="H4" value="1000.8321499631097" />
+      <entry key="D1" value="1921.7020086545922" />
+      <entry key="W1" value="2172.4396876431783" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="5.670831995387148E-173" />
-      <entry key="MS500" value="3.554097651543498E-35" />
-      <entry key="S2" value="2.441648003398809E-9" />
-      <entry key="S5" value="3.607273884392424E-4" />
-      <entry key="S10" value="0.020268042494633338" />
-      <entry key="S30" value="0.3870912077761479" />
-      <entry key="S60" value="1.0650637266052525" />
-      <entry key="M2" value="2.6648051446225116" />
-      <entry key="M5" value="8.613134637135245" />
-      <entry key="M10" value="17.11573258430797" />
-      <entry key="M15" value="24.793848205549008" />
-      <entry key="M30" value="45.6061155040571" />
-      <entry key="H1" value="79.21441793936694" />
-      <entry key="H2" value="128.5185232685279" />
-      <entry key="H4" value="183.05645162178152" />
-      <entry key="D1" value="265.7637837755439" />
-      <entry key="W1" value="285.5053627217104" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="7.77581464132607E-161" />
+      <entry key="S5" value="9.69659550113442E-65" />
+      <entry key="S10" value="1.207384060296014E-32" />
+      <entry key="S30" value="3.487672987505385E-11" />
+      <entry key="S60" value="8.302976574302856E-6" />
+      <entry key="M2" value="0.0040690031479431515" />
+      <entry key="M5" value="0.16759850153012867" />
+      <entry key="M10" value="0.5911500113307018" />
+      <entry key="M15" value="1.0680825441672188" />
+      <entry key="M30" value="5.141055340175803" />
+      <entry key="H1" value="24.733103102563778" />
+      <entry key="H2" value="74.88336073831489" />
+      <entry key="H4" value="150.9709468493197" />
+      <entry key="D1" value="300.9926690277206" />
+      <entry key="W1" value="342.4463059716042" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.3180459159695217" />
-      <entry key="MS500" value="2.5951161221161536" />
-      <entry key="S2" value="4.549376751358251" />
-      <entry key="S5" value="5.7964829786784895" />
-      <entry key="S10" value="7.709526751182183" />
-      <entry key="S30" value="13.957888597372225" />
-      <entry key="S60" value="19.34902015951346" />
-      <entry key="M2" value="26.178203389061263" />
-      <entry key="M5" value="45.82762073693124" />
-      <entry key="M10" value="81.06130433678331" />
-      <entry key="M15" value="119.30932809881463" />
-      <entry key="M30" value="240.06328681734456" />
-      <entry key="H1" value="467.83912324747075" />
-      <entry key="H2" value="819.4560699055877" />
-      <entry key="H4" value="1204.4906922926145" />
-      <entry key="D1" value="1777.7235924281617" />
-      <entry key="W1" value="1913.086721957033" />
+      <entry key="MS100" value="0.009420373810312866" />
+      <entry key="MS500" value="0.43054344769076647" />
+      <entry key="S2" value="2.414223207020562" />
+      <entry key="S5" value="4.450949066171544" />
+      <entry key="S10" value="5.559555895737918" />
+      <entry key="S30" value="6.5651922340739945" />
+      <entry key="S60" value="7.153051916357105" />
+      <entry key="M2" value="7.849075925911002" />
+      <entry key="M5" value="10.670359435530502" />
+      <entry key="M10" value="16.56328387291551" />
+      <entry key="M15" value="22.2393217637705" />
+      <entry key="M30" value="59.041811713535" />
+      <entry key="H1" value="216.1059573930068" />
+      <entry key="H2" value="595.0537729824608" />
+      <entry key="H4" value="1151.7689837756743" />
+      <entry key="D1" value="2222.683539725848" />
+      <entry key="W1" value="2514.884186254886" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -212,7 +198,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.OrganizerBackEnd.executor": "Run",
+    ".NET Launch Settings Profile.OrganizerBackEnd.executor": "Debug",
     "47904495-721a-4688-aed8-f62fdea40b69.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
@@ -227,6 +213,7 @@
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "refactor/organizer",
     "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/gabriel/Projects/pastas do git/ToDoListDotNET/OrganizerBackEnd/Organizer.Infra.Data/Migrations",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -425,7 +412,8 @@
       <workItem from="1780457642304" duration="53000" />
       <workItem from="1780520460058" duration="613000" />
       <workItem from="1780797930707" duration="440000" />
-      <workItem from="1780799577324" duration="10771000" />
+      <workItem from="1780799577324" duration="11037000" />
+      <workItem from="1780854518241" duration="8681000" />
     </task>
     <servers />
   </component>
