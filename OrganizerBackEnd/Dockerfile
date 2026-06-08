@@ -1,6 +1,6 @@
 # ─── Estágio base: dependências comuns ───────────────────────────────────────
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS base
-WORKDIR /app
+WORKDIR /app/Organizer.API
 
 # ─── Estágio dev: roda com watch, código vem de volume ───────────────────────
 FROM base AS dev
@@ -17,4 +17,4 @@ RUN dotnet publish -c Release -o /publish
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS prod
 WORKDIR /app
 COPY --from=build /publish .
-ENTRYPOINT ["dotnet", "OrganizerBackEnd.dll"]
+ENTRYPOINT ["dotnet", "Organizer.API.dll"]

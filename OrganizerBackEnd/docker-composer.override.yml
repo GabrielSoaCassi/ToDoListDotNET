@@ -3,9 +3,17 @@ services:
     build:
       target: dev         # sobrescreve o target para o estágio dev
     volumes:
-      - .:/app            # monta o código local dentro do container
-      - /app/bin          # exclui bin/ do volume (usa o do container)
-      - /app/obj          # exclui obj/ do volume
+      - .:/app
+      - /app/Organizer.API/bin
+      - /app/Organizer.API/obj            # monta o código local dentro do container
+      - /app/Organizer.Domain/bin          # exclui bin/ do volume (usa o do container)
+      - /app/Organizer.Domain/obj
+      - /app/Organizer.Application/bin
+      - /app/Organizer.Application/obj            # monta o código local dentro do container 
+      - /app/Organizer.Infra.Data/bin
+      - /app/Organizer.Infra.Data/obj            # monta o código local dentro do container
+      - /app/Organizer.Infra.IoC/bin          # exclui bin/ do volume (usa o do container)
+      - /app/Organizer.Infra.IoC/obj           # exclui obj/ do volume
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__Default=Host=db;Database=organizer;Username=postgres;Password=postgres
