@@ -1,0 +1,11 @@
+services:
+  api:
+    build:
+      context: .
+      target: prod        # estágio do Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__Default=${DATABASE_URL}
+    restart: unless-stopped

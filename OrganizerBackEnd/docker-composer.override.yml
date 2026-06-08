@@ -1,0 +1,27 @@
+services:
+  api:
+    build:
+      target: dev         # sobrescreve o target para o estágio dev
+    volumes:
+      - .:/app            # monta o código local dentro do container
+      - /app/bin          # exclui bin/ do volume (usa o do container)
+      - /app/obj          # exclui obj/ do volume
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=Host=db;Database=organizer;Username=postgres;Password=postgres
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: organizer
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
