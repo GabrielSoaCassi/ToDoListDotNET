@@ -39,6 +39,11 @@ ScaffoldingReadMe.txt
 # NuGet Symbol Packages
 *.snupkg
 
+# Entity Framework:
+*.db
+*.sqlite
+*.db-journal
+
 # dotenv environment variables file
 .env
 
